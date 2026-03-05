@@ -13,8 +13,10 @@ export default function Home() {
       <div className="w-full flex justify-center">
 
         {/* Left Ad Gutter (Hidden on Mobile/Tablet) */}
-        <aside className="hidden xl:block w-64 flex-shrink-0 bg-transparent relative z-0">
-          {/* Future Ad Unit Position */}
+        <aside className="hidden xl:block w-64 flex-shrink-0 bg-transparent relative z-0 pt-24 px-4 pb-8">
+          <div className="sticky top-24 w-full min-h-[600px] border border-dashed border-teal-300 rounded-xl bg-teal-50/50 flex items-center justify-center opacity-70 overflow-hidden">
+            <span className="text-teal-700/50 font-bold uppercase tracking-widest text-sm transform -rotate-90 origin-center whitespace-nowrap">Place Ad Unit Here</span>
+          </div>
         </aside>
 
         {/* Center Content Column */}
@@ -112,8 +114,10 @@ export default function Home() {
         </div>
 
         {/* Right Ad Gutter (Hidden on Mobile/Tablet) */}
-        <aside className="hidden xl:block w-64 flex-shrink-0 bg-transparent relative z-0">
-          {/* Future Ad Unit Position */}
+        <aside className="hidden xl:block w-64 flex-shrink-0 bg-transparent relative z-0 pt-24 px-4 pb-8">
+          <div className="sticky top-24 w-full min-h-[600px] border border-dashed border-teal-300 rounded-xl bg-teal-50/50 flex items-center justify-center opacity-70 overflow-hidden">
+            <span className="text-teal-700/50 font-bold uppercase tracking-widest text-sm transform rotate-90 origin-center whitespace-nowrap">Place Ad Unit Here</span>
+          </div>
         </aside>
 
       </div>
