@@ -146,12 +146,12 @@ export default function Calculator() {
                         {emailLocked && (
                             <div className="absolute inset-0 z-10 backdrop-blur-md bg-white/30 rounded-2xl flex flex-col items-center justify-center p-6 text-center shadow-inner border border-white/50">
                                 <div className="bg-white p-6 rounded-2xl shadow-2xl max-w-sm w-full mx-auto">
-                                    <h3 className="text-xl font-bold text-gray-800 mb-2">Unlock Full Report</h3>
-                                    <p className="text-sm text-gray-600 mb-6">Enter your email to reveal your personalized macro breakdown and inflammation score.</p>
+                                    <h3 className="text-xl font-bold text-gray-800 mb-2">Get your baseline results!</h3>
+                                    <p className="text-sm text-gray-600 mb-6">We are currently building the ultimate Agentic Wellness Automator for deep-dive nutritional logistics. Enter your email to join the exclusive waitlist and get 50% off your first month when we launch.</p>
                                     <form onSubmit={handleEmailSubmit}>
                                         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email Address" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all outline-none bg-gray-50 mb-4" />
                                         <button type="submit" className="w-full bg-gradient-to-r from-emerald-600 to-teal-500 text-white font-bold py-3 rounded-xl shadow-lg hover:shadow-xl transform transition-all active:scale-95">
-                                            Unlock & Email Full Report
+                                            Join Waitlist & Unlock Report
                                         </button>
                                     </form>
                                 </div>
