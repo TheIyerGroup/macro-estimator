@@ -45,16 +45,16 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
         />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-teal-200 font-sans`}
+      >
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1497376185782088"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-teal-200 font-sans`}
-      >
         {children}
       </body>
     </html>
