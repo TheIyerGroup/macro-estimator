@@ -49,7 +49,7 @@ export default function Home() {
             </div>
             <h2 className="text-3xl font-black text-slate-800 mb-4">Backed by Medical Experts</h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
-              Our analysis and algorithms are guided by current and former medical professionals, including a former professor of medical nutrition at Northwestern University, Rush University, and the Karolinska Institute.
+              Our core algorithms and nutritional models are developed in consultation with experienced medical professionals and grounded in established clinical guidelines.
             </p>
           </section>
 
