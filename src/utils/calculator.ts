@@ -1,8 +1,7 @@
 export type Gender = 'male' | 'female';
 export type ActivityLevel = 'sedentary' | 'lightly_active' | 'moderately_active' | 'very_active' | 'extra_active';
-export type DietaryPreference = 'standard' | 'keto' | 'high_protein' | 'low_carb' | 'vegan' | 'vegetarian';
+export type DietType = 'omnivore' | 'vegetarian' | 'vegan' | 'pescatarian' | 'keto' | 'paleo' | 'mediterranean' | 'carnivore' | 'low_fodmap' | 'gluten_free' | 'dairy_free' | 'high_protein' | 'low_carb';
 export type PrimaryHealthGoal = 'weight_loss' | 'muscle_gain' | 'energy' | 'joint_health' | 'general_wellness';
-export type CurrentDietType = 'standard' | 'keto' | 'vegan' | 'paleo' | 'mediterranean' | 'other';
 
 export interface UserInput {
   age: number;
@@ -10,9 +9,9 @@ export interface UserInput {
   heightInches: number;
   gender: Gender;
   activityLevel: ActivityLevel;
-  dietaryPreference: DietaryPreference;
+  dietaryPreference: DietType;
   primaryHealthGoal: PrimaryHealthGoal;
-  currentDietType: CurrentDietType;
+  currentDietType: DietType;
 }
 
 export interface MacroResults {
@@ -37,13 +36,20 @@ const ACTIVITY_MULTIPLIERS: Record<ActivityLevel, number> = {
 };
 
 // Returns macros in percentages (Carbs, Protein, Fat)
-const DIET_MACRO_SPLITS: Record<DietaryPreference, { carbs: number; protein: number; fat: number }> = {
-  standard: { carbs: 0.50, protein: 0.20, fat: 0.30 },
+const DIET_MACRO_SPLITS: Record<DietType, { carbs: number; protein: number; fat: number }> = {
+  omnivore: { carbs: 0.50, protein: 0.20, fat: 0.30 },
+  vegetarian: { carbs: 0.50, protein: 0.20, fat: 0.30 },
+  vegan: { carbs: 0.55, protein: 0.15, fat: 0.30 },
+  pescatarian: { carbs: 0.50, protein: 0.20, fat: 0.30 },
   keto: { carbs: 0.05, protein: 0.25, fat: 0.70 },
+  paleo: { carbs: 0.30, protein: 0.30, fat: 0.40 },
+  mediterranean: { carbs: 0.40, protein: 0.20, fat: 0.40 },
+  carnivore: { carbs: 0.00, protein: 0.30, fat: 0.70 },
+  low_fodmap: { carbs: 0.50, protein: 0.20, fat: 0.30 },
+  gluten_free: { carbs: 0.50, protein: 0.20, fat: 0.30 },
+  dairy_free: { carbs: 0.50, protein: 0.20, fat: 0.30 },
   high_protein: { carbs: 0.35, protein: 0.40, fat: 0.25 },
   low_carb: { carbs: 0.25, protein: 0.35, fat: 0.40 },
-  vegan: { carbs: 0.55, protein: 0.15, fat: 0.30 },
-  vegetarian: { carbs: 0.50, protein: 0.20, fat: 0.30 },
 };
 
 export function calculateMacros(input: UserInput): MacroResults {
@@ -75,20 +81,29 @@ export function calculateMacros(input: UserInput): MacroResults {
 export function calculateInflammationScore(input: UserInput): InflammationResult {
   let baseScore = 5;
 
-  // Adjust based on dietary preference (generic wellness guidelines)
-  switch (input.dietaryPreference) {
+  // Adjust score based on their baseline current diet
+  switch (input.currentDietType) {
     case 'vegan':
     case 'vegetarian':
-      baseScore -= 2; // High plant intake generally lowers inflammation
+    case 'pescatarian':
+    case 'mediterranean':
+      baseScore -= 2; // High plant/omega-3 intake typically lowers inflammation
       break;
-    case 'standard':
-      baseScore += 2; // Standard Western diet often higher in processed foods
+    case 'paleo':
+    case 'low_fodmap':
+      baseScore -= 1; // Focus on whole foods and removing irritants
+      break;
+    case 'omnivore':
+    case 'carnivore':
+      baseScore += 2; // Often higher in processed foods or saturated fats
       break;
     case 'keto':
       baseScore += 1; // Can be pro-inflammatory depending on saturated fat sources
       break;
-    case 'low_carb':
+    case 'gluten_free':
+    case 'dairy_free':
     case 'high_protein':
+    case 'low_carb':
       // neutral base
       break;
   }

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { UserInput, MacroResults, InflammationResult, calculateMacros, calculateInflammationScore, Gender, ActivityLevel, DietaryPreference, PrimaryHealthGoal, CurrentDietType } from '@/utils/calculator';
+import { UserInput, MacroResults, InflammationResult, calculateMacros, calculateInflammationScore } from '@/utils/calculator';
 
 export default function Calculator() {
     const [step, setStep] = useState<1 | 2>(1);
@@ -11,10 +11,26 @@ export default function Calculator() {
         heightInches: 65,
         gender: 'female',
         activityLevel: 'moderately_active',
-        dietaryPreference: 'standard',
+        dietaryPreference: 'omnivore',
         primaryHealthGoal: 'general_wellness',
-        currentDietType: 'standard',
+        currentDietType: 'omnivore',
     });
+
+    const dietOptions = [
+        { value: 'omnivore', label: 'Omnivore / Standard' },
+        { value: 'vegetarian', label: 'Vegetarian' },
+        { value: 'vegan', label: 'Vegan' },
+        { value: 'pescatarian', label: 'Pescatarian' },
+        { value: 'keto', label: 'Keto' },
+        { value: 'paleo', label: 'Paleo' },
+        { value: 'mediterranean', label: 'Mediterranean' },
+        { value: 'carnivore', label: 'Carnivore' },
+        { value: 'low_fodmap', label: 'Low-FODMAP' },
+        { value: 'gluten_free', label: 'Gluten-Free' },
+        { value: 'dairy_free', label: 'Dairy-Free' },
+        { value: 'high_protein', label: 'High Protein' },
+        { value: 'low_carb', label: 'Low Carb' },
+    ];
     const [results, setResults] = useState<{ macros: MacroResults; inflammation: InflammationResult } | null>(null);
     const [emailLocked, setEmailLocked] = useState(true);
     const [email, setEmail] = useState('');
@@ -92,12 +108,9 @@ export default function Calculator() {
                         <div className="md:col-span-2">
                             <label className="block text-sm font-semibold text-gray-700 mb-1">Dietary Preference <em>(For Macro Split)</em></label>
                             <select name="dietaryPreference" value={formData.dietaryPreference} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all outline-none bg-white/80">
-                                <option value="standard">Standard Western Diet</option>
-                                <option value="high_protein">High Protein</option>
-                                <option value="low_carb">Low Carb</option>
-                                <option value="keto">Keto</option>
-                                <option value="vegetarian">Vegetarian</option>
-                                <option value="vegan">Vegan</option>
+                                {dietOptions.map(opt => (
+                                    <option key={`pref-${opt.value}`} value={opt.value}>{opt.label}</option>
+                                ))}
                             </select>
                         </div>
 
@@ -115,12 +128,9 @@ export default function Calculator() {
                         <div className="md:col-span-1">
                             <label className="block text-sm font-semibold text-gray-700 mb-1">Current Diet Type</label>
                             <select name="currentDietType" value={formData.currentDietType} onChange={handleInputChange} required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all outline-none bg-white/80">
-                                <option value="standard">Standard</option>
-                                <option value="keto">Keto</option>
-                                <option value="vegan">Vegan</option>
-                                <option value="paleo">Paleo</option>
-                                <option value="mediterranean">Mediterranean</option>
-                                <option value="other">Other</option>
+                                {dietOptions.map(opt => (
+                                    <option key={`cur-${opt.value}`} value={opt.value}>{opt.label}</option>
+                                ))}
                             </select>
                         </div>
                     </div>
