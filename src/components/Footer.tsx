@@ -53,9 +53,9 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <a href="mailto:hello@macroinflammationcalculator.com" className="text-base text-gray-500 hover:text-teal-600">
+                                <Link href="/contact" className="text-base text-gray-500 hover:text-teal-600">
                                     Contact Us
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
