@@ -42,6 +42,22 @@ export default function Home() {
             <Calculator />
           </section>
 
+          {/* How It Works Section */}
+          <section id="how-it-works" className="mb-24 bg-white/70 backdrop-blur-lg rounded-3xl p-8 md:p-12 shadow-xl border border-white/40">
+            <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">How This Estimator Works</h2>
+            <div className="prose prose-teal max-w-none text-gray-600 leading-relaxed space-y-6">
+              <p>
+                Our Human Macro & Inflammation Estimator uses established nutritional science to help you understand your baseline dietary needs and potential risks. First, we use the <strong>Mifflin-St Jeor Equation</strong>—widely considered by clinical dietitians as the gold standard for accurately predicting resting metabolic rate (RMR). By factoring in your age, gender, height, weight, and daily physical activity level, we calculate your Total Daily Energy Expenditure (TDEE). This gives you a highly accurate estimate of the exact number of calories your body burns in a given day just to function.
+              </p>
+              <p>
+                Once your baseline caloric need is established, the calculator dynamically applies specific <strong>macronutrient percentage splits</strong> based entirely on your selected &apos;Primary Dietary Preference&apos;. For example, a Ketogenic profile will aggressively lower carbohydrates and increase fats to keep you in ketosis, whereas a High-Protein or Standard profile relies on more balanced energetic pathways. These customized ratios convert your daily caloric target into precise grams of protein, carbohydrates, and fats.
+              </p>
+              <p>
+                Finally, the tool generates a <strong>Dietary Inflammation Score (1-10)</strong>. This proprietary estimation is derived by correlating your current real-world diet type, existing body composition (BMI via your height/weight), and activity level against standard epidemiological data regarding systemic inflammation. For instance, highly processed Standard Western diets typically raise baseline inflammatory risk, while Mediterranean or Plant-based diets tend to lower it. This score is an educational starting point to help guide your long-term food choices.
+              </p>
+            </div>
+          </section>
+
           {/* Medical Advisory Section */}
           <section id="medical-experts" className="mb-24 bg-gradient-to-br from-white/80 to-teal-50/80 backdrop-blur-xl rounded-3xl p-8 md:p-12 shadow-lg border border-teal-100 text-center">
             <div className="flex justify-center mb-6">
