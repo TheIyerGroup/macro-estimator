@@ -13,33 +13,37 @@ export default function Contact() {
         setIsSubmitting(true);
         setSubmitStatus('idle');
 
-        const formData = new FormData(e.currentTarget);
-        const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            phone: formData.get('phone'),
-            message: formData.get('message'),
-        };
+        const formTarget = e.target as HTMLFormElement;
+        const formData = new FormData(formTarget);
+
+        // Append the API variables strictly to the FormData object
+        formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY as string);
+        formData.append("subject", `New Estimator Contact from ${formData.get('name')}`);
+        formData.append("from_name", formData.get('name') as string);
+
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
 
         try {
-            const response = await fetch('/api/contact', {
-                method: 'POST',
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
                 },
-                body: JSON.stringify(data),
+                body: json,
             });
 
             if (response.ok) {
                 setSubmitStatus('success');
-                e.currentTarget.reset();
+                formTarget.reset();
             } else {
                 const errorData = await response.json();
-                setErrorMessage(errorData.error || 'Failed to send message.');
+                setErrorMessage(errorData.message || 'Failed to securely dispatch the email through Web3Forms.');
                 setSubmitStatus('error');
             }
         } catch (err) {
-            setErrorMessage('A network error occurred. Please try again later.');
+            setErrorMessage('A network error occurred connecting to Web3Forms API. Please try again later.');
             setSubmitStatus('error');
         } finally {
             setIsSubmitting(false);
