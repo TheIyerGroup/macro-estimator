@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -50,6 +51,26 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-teal-200 font-sans flex flex-col min-h-screen`}
       >
+        <header className="w-full bg-white/80 backdrop-blur-md border-b border-teal-100 sticky top-0 z-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center h-16">
+              <div className="flex-shrink-0 flex items-center">
+                <Link href="/" className="text-xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-emerald-600">
+                  MacroEstimator
+                </Link>
+              </div>
+              <nav className="flex space-x-8">
+                <Link href="/" className="text-slate-700 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-semibold transition-colors">
+                  Calculator
+                </Link>
+                <Link href="/guide" className="text-slate-700 hover:text-teal-600 px-3 py-2 rounded-md text-sm font-semibold transition-colors">
+                  Nutrition Guide
+                </Link>
+              </nav>
+            </div>
+          </div>
+        </header>
+
         <div className="flex-grow">
           {children}
         </div>
