@@ -107,7 +107,7 @@ export default function Home() {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-              The ultimate human macro and inflammation estimator. Input your basic metrics to decode the exact daily macronutrients your body needs—and evaluate your baseline dietary inflammation score.
+              The ultimate human macro and inflammation estimator. Input your basic metrics for precision anti-inflammatory macronutrient tracking, and instantly decode the daily nutrients your body needs to thrive.
             </p>
             <div className="flex justify-center gap-4 text-sm font-medium text-slate-500">
               <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-emerald-500"></span> Science-Backed</span>
@@ -122,16 +122,16 @@ export default function Home() {
 
           {/* How It Works Section */}
           <section id="how-it-works" className="mb-24 bg-white/70 backdrop-blur-lg rounded-3xl p-8 md:p-12 shadow-xl border border-white/40">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">How This Estimator Works</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">How It Works: The Science of Macro-Inflammation</h2>
             <div className="prose prose-teal max-w-none text-gray-600 leading-relaxed space-y-6">
               <p>
-                Our Human Macro & Inflammation Estimator uses established nutritional science to help you understand your baseline dietary needs and potential risks. First, we use the <strong>Mifflin-St Jeor Equation</strong>—widely considered by clinical dietitians as the gold standard for accurately predicting resting metabolic rate (RMR). By factoring in your age, gender, height, weight, and daily physical activity level, we calculate your Total Daily Energy Expenditure (TDEE). This gives you a highly accurate estimate of the exact number of calories your body burns in a given day just to function.
+                To provide highly precise <strong>dietary inflammation metrics</strong>, our algorithm combines established resting metabolic rate methodologies with the latest epidemiological research surrounding proactive <strong>anti-inflammatory macronutrient tracking</strong>. Initially, the calculator utilizes the Mifflin-St Jeor Equation to determine your Total Daily Energy Expenditure (TDEE). This ensures that your physiological baseline for caloric retention and energy metabolism is mathematically sound.
               </p>
               <p>
-                Once your baseline caloric need is established, the calculator dynamically applies specific <strong>macronutrient percentage splits</strong> based entirely on your selected &apos;Primary Dietary Preference&apos;. For example, a Ketogenic profile will aggressively lower carbohydrates and increase fats to keep you in ketosis, whereas a High-Protein or Standard profile relies on more balanced energetic pathways. These customized ratios convert your daily caloric target into precise grams of protein, carbohydrates, and fats.
+                Once your baseline energy demands are verified, we apply specific macronutrient ratios aligned with your primary dietary preference. The science behind <strong>macro-based inflammation scoring</strong> goes far beyond simple caloric counting. For instance, heavily refined carbohydrates can rapidly spike insulin, instigating a pro-inflammatory environment through Advanced Glycation End-products (AGEs). Conversely, diets optimized for higher fat intake—specifically those balancing Omega-3 and Omega-6 ratios—are known to significantly damper systemic inflammation.
               </p>
               <p>
-                Finally, the tool generates a <strong>Dietary Inflammation Score (1-10)</strong>. This proprietary estimation is derived by correlating your current real-world diet type, existing body composition (BMI via your height/weight), and activity level against standard epidemiological data regarding systemic inflammation. For instance, highly processed Standard Western diets typically raise baseline inflammatory risk, while Mediterranean or Plant-based diets tend to lower it. This score is an educational starting point to help guide your long-term food choices.
+                Finally, our system calculates your absolute risk baseline, effectively <strong>calculating pro-inflammatory foods</strong> and tracking their generalized impact on your body composition over time. The result is a comprehensive 1-10 predictive index indicating your risk of diet-induced systemic inflammation. Understanding these scientific metrics is paramount for pivoting toward a biologically supportive, anti-inflammatory lifestyle that mitigates chronic diseases before they start.
               </p>
             </div>
           </section>
@@ -177,6 +177,13 @@ export default function Home() {
           {/* Reserved for Future Placement */}
         </aside>
 
+      </div>
+
+      {/* Professional Authority Disclaimer */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-8 text-center bg-gray-50 border border-t border-gray-200 rounded-xl p-6 shadow-sm">
+        <p className="text-sm text-gray-500 font-medium leading-relaxed">
+          Disclaimer: Our core algorithms and nutritional models are developed in consultation with established clinical guidelines. This tool is designed to provide educational estimates regarding dietary inflammation and macronutrient balance. It is for informational purposes only and is not a substitute for professional medical or nutritional advice.
+        </p>
       </div>
     </main>
   );

@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Macro and Inflammation Calculator - Free Health Tool",
-  description: "Calculate your personalized daily macros and dietary inflammation score based on height, weight, age, and dietary preferences.",
-  keywords: "Macro and Inflammation Calculator, dietary inflammation score, macro calculator, nutrition calculator, free macro estimator",
+  title: "Macro and Inflammation Calculator | Dietary Inflammation Metrics",
+  description: "Gain precision anti-inflammatory macronutrient tracking with our free calculator. Decode your daily needs and discover your macro-based inflammation scoring.",
+  keywords: "Macro and Inflammation Calculator, dietary inflammation metrics, anti-inflammatory macronutrient tracking, macro-based inflammation scoring, calculating pro-inflammatory foods",
 };
 
 export default function RootLayout({
@@ -27,9 +27,9 @@ export default function RootLayout({
 }>) {
   const schemaMarkup = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
+    "@type": "SoftwareApplication",
     "name": "Macro and Inflammation Calculator",
-    "description": "Calculate your personalized daily macros and dietary inflammation score based on your metrics.",
+    "description": "Calculate your personalized daily macros and dietary inflammation metrics based on your body composition. Precision anti-inflammatory macronutrient tracking.",
     "applicationCategory": "HealthApplication",
     "operatingSystem": "All",
     "offers": {
