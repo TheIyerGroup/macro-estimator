@@ -38,6 +38,30 @@ export default function Home() {
       answer: "Absolutely. As your body weight, activity level, or primary health goals shift (e.g., transitioning from weight loss to muscle gain), your Total Daily Energy Expenditure will change. We recommend recalculating your baseline every 4 to 6 weeks, or whenever you experience a significant plateau, to ensure your nutritional targets continue to align with your metabolic reality.",
       sourceTitle: "Source: NIDDK - Diet & Nutrition Myths",
       sourceUrl: "https://www.niddk.nih.gov/health-information/weight-management/myths-nutrition-physical-activity"
+    },
+    {
+      question: "What is the true difference between macronutrients and micronutrients?",
+      answer: "Macronutrients (proteins, carbs, fats) are required in large quantities to provide the body with calories, or kinetic energy. Micronutrients (vitamins and minerals) are required in smaller amounts to orchestrate cellular functions, immune defense, and bone health. Our calculator optimizes your macro split, but sourcing those macros from whole foods will ensure your micronutrients are covered too.",
+      sourceTitle: "Source: WHO - Nutrients",
+      sourceUrl: "https://www.who.int/health-topics/nutrition"
+    },
+    {
+      question: "How accurate is the Dietary Inflammation Score?",
+      answer: "Our Dietary Inflammation Score is an educational baseline derived from wide-scale epidemiological data. It compares the known inflammatory index of your chosen diet profile against your baseline body composition and activity level. It is highly accurate at signaling broad risk trends, but it cannot replace a clinical blood test measuring actual systemic inflammatory markers like C-Reactive Protein (CRP).",
+      sourceTitle: "Source: PubMed - Dietary Inflammatory Index",
+      sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/24336255/"
+    },
+    {
+      question: "Can I use this tool if I am pregnant or nursing?",
+      answer: "While the underlying equations are mathematically sound, pregnant and nursing women have significantly elevated metabolic demands and specialized nutritional needs. You should add an energetic premium to the baseline provided here and consult extensively with your OB-GYN or a registered dietitian before altering your diet during pregnancy.",
+      sourceTitle: "Source: ACOG - Nutrition During Pregnancy",
+      sourceUrl: "https://www.acog.org/womens-health/faqs/nutrition-during-pregnancy"
+    },
+    {
+      question: "How do I translate these macro targets into my daily meals?",
+      answer: "Once you have your calculated macro targets (e.g., 150g protein, 200g carbs, 65g fat), the most effective way to hit them is by using a digital food scale and parsing your ingredients through a tracking app like Cronometer or MyFitnessPal. Over time, you will intuitively learn what a 30g protein serving of chicken breast or a 40g carbohydrate serving of oats looks like.",
+      sourceTitle: "Source: USDA - MyPlate Plan",
+      sourceUrl: "https://www.myplate.gov/myplate-plan"
     }
   ];
 
@@ -65,8 +89,13 @@ export default function Home() {
       <div className="absolute top-[20%] right-[-5%] w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000 pointer-events-none"></div>
       <div className="absolute bottom-[-10%] left-[20%] w-80 h-80 bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-4000 pointer-events-none"></div>
 
-      {/* Main Layout Grid - Centered Application Area */}
+      {/* Main Layout Grid - Centered Application Area with Margins for Future Ads */}
       <div className="w-full flex justify-center">
+
+        {/* Left Ad Space Reserved */}
+        <aside className="hidden xl:block w-64 flex-shrink-0 bg-transparent relative z-0 pt-24 px-4 pb-8">
+          {/* Reserved for Future Placement */}
+        </aside>
 
         {/* Center Content Column */}
         <div className="flex-1 max-w-4xl px-4 pt-16 md:pt-24 relative z-10 w-full">
@@ -142,6 +171,11 @@ export default function Home() {
           </section>
 
         </div>
+
+        {/* Right Ad Space Reserved */}
+        <aside className="hidden xl:block w-64 flex-shrink-0 bg-transparent relative z-0 pt-24 px-4 pb-8">
+          {/* Reserved for Future Placement */}
+        </aside>
 
       </div>
     </main>

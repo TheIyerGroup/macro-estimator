@@ -32,8 +32,6 @@ export default function Calculator() {
         { value: 'low_carb', label: 'Low Carb' },
     ];
     const [results, setResults] = useState<{ macros: MacroResults; inflammation: InflammationResult } | null>(null);
-    const [emailLocked, setEmailLocked] = useState(true);
-    const [email, setEmail] = useState('');
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
@@ -49,14 +47,6 @@ export default function Calculator() {
         const inflammation = calculateInflammationScore(formData);
         setResults({ macros, inflammation });
         setStep(2);
-    };
-
-    const handleEmailSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (email) {
-            // In a real app, send email to backend here
-            setEmailLocked(false);
-        }
     };
 
     return (
@@ -152,24 +142,8 @@ export default function Calculator() {
                     <h2 className="text-3xl font-extrabold text-gray-800 mb-8 border-b pb-4">Your Estimated Results</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 relative flex-grow">
-                        {/* Blurry overly if email is locked */}
-                        {emailLocked && (
-                            <div className="absolute inset-0 z-10 backdrop-blur-md bg-white/30 rounded-2xl flex flex-col items-center justify-center p-6 text-center shadow-inner border border-white/50">
-                                <div className="bg-white p-6 rounded-2xl shadow-2xl max-w-sm w-full mx-auto">
-                                    <h3 className="text-xl font-bold text-gray-800 mb-2">Get your baseline results!</h3>
-                                    <p className="text-sm text-gray-600 mb-6">We are currently building the ultimate Agentic Wellness Automator for deep-dive nutritional logistics. Enter your email to join the exclusive waitlist and get 50% off your first month when we launch.</p>
-                                    <form onSubmit={handleEmailSubmit}>
-                                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email Address" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all outline-none bg-gray-50 mb-4" />
-                                        <button type="submit" className="w-full bg-gradient-to-r from-emerald-600 to-teal-500 text-white font-bold py-3 rounded-xl shadow-lg hover:shadow-xl transform transition-all active:scale-95">
-                                            Join Waitlist & Unlock Report
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        )}
-
-                        {/* Results Content (Blurred if locked) */}
-                        <div className={`transition-all duration-700 ${emailLocked ? 'blur-sm select-none' : ''}`}>
+                        {/* Results Content */}
+                        <div className="transition-all duration-700">
                             <div className="bg-teal-50 rounded-2xl p-6 border border-teal-100 h-full flex flex-col">
                                 <h3 className="text-xl font-bold text-teal-800 mb-4">Daily Targets</h3>
                                 <div className="text-5xl font-black text-teal-600 mb-6 bg-white py-4 px-6 rounded-xl inline-block shadow-sm text-center">
@@ -208,7 +182,7 @@ export default function Calculator() {
                             </div>
                         </div>
 
-                        <div className={`transition-all duration-700 ${emailLocked ? 'blur-sm select-none' : ''}`}>
+                        <div className="transition-all duration-700">
                             <div className="bg-orange-50 rounded-2xl p-6 border border-orange-100 h-full flex flex-col justify-center text-center">
                                 <h3 className="text-xl font-bold text-orange-800 mb-2">Dietary Inflammation Score</h3>
                                 <div className="text-6xl font-black text-orange-600 my-4">
